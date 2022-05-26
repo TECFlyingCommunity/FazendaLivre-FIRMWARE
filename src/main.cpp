@@ -40,6 +40,8 @@ void setup()
     Serial.begin(115200);
     Serial.println("...");
 
+    // wifiManager.resetSettings();
+
     if (WiFi.status() != WL_CONNECTED)
     {
         if (!wifiManager.autoConnect("SMART-FARM-CONFIG", "12345678")) // Função para se autoconectar na rede
@@ -61,7 +63,7 @@ void setup()
     // callback para quando se conecta em uma rede, ou seja, quando passa a trabalhar em modo estação
     wifiManager.setSaveConfigCallback(saveConfigCallback);
 
-    mqttClient.setServer("192.168.0.17", 1883);
+    mqttClient.setServer("192.168.0.100", 1883);
 
     dht.begin();
 
